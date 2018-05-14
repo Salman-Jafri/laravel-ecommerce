@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="header-left">
                     <div class="logo">
-                        <a href="index.html"><img src="images/logo.png" alt=""/></a>
+                        <a href="{{route('home')}}"><img src="images/logo.png" alt=""/></a>
                     </div>
                     <div class="menu">
                         <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
@@ -16,8 +16,8 @@
                             {{--<li><a href="{{route('front.shop',1)}}">Company</a></li>--}}
                             {{--<li><a href="{{route('front.contact')}}">Contact</a></li>--}}
 
-                            <li><a href="">Shop</a></li>
-                            <li class="current"><a href="">Team</a></li>
+                            <li><a href="{{route('shop.index')}}">Shop</a></li>
+                            <li><a href="">Team</a></li>
                             <li><a href="">Events</a></li>
                             <li><a href="">Experience</a></li>
                             <li><a href="">Company</a></li>
@@ -35,7 +35,7 @@
                     <!-- start search-->
                     <div class="search-box">
                         <div id="sb-search" class="sb-search">
-                            <form>
+                            <form action="{{route('shop.search')}}">
                                 <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
                                 <input class="sb-search-submit" type="submit" value="">
                                 <span class="sb-icon-search"> </span>
@@ -49,21 +49,21 @@
                         new UISearch( document.getElementById( 'sb-search' ) );
                     </script>
                     <ul class="icon1 sub-icon1 profile_img">
-                        <li><a class="active-icon c1" href="#"> </a>
+                        <li><a class="active-icon c1" href="{{route('cart.index')}}"> </a>
                             <ul class="sub-icon1 list">
                                 <div class="product_control_buttons">
-                                    <a href="#"><img src="images/edit.png" alt=""/></a>
+                                    <a href="{{route('cart.index')}}"><img src="images/edit.png" alt=""/></a>
                                     <a href="#"><img src="images/close_edit.png" alt=""/></a>
                                 </div>
                                 <div class="clear"></div>
                                 <li class="list_img"><img src="images/1.jpg" alt=""/></li>
 
-                                <li class="list_desc"><h4><a href="#">Cart Contents</a></h4><span class="actual">Total Items:
+                                <li class="list_desc"><h4><a href="#">Cart Contents</a></h4><span class="actual">Total Items: {{Cart::count()}}
 
 
                                 {{--<li class="list_desc"><h4><a href="#">Cart Contents</a></h4><span class="actual">Total Items: {{Cart::count()}}--}}
 
-                                        Total Amount: </span></li>
+                                        Total Amount: {{Cart::subtotal()}} </span></li>
                                 {{--Total Amount: {{Cart::total()}}</span></li>--}}
 
 
@@ -71,8 +71,8 @@
 
                                     {{--<div class="check_button"><a href="{{route('cart.checkout')}}">Check out</a></div>--}}
 
-                                    <div class="check_button"><a href="">Check out</a></div>
-
+                                    <div class="check_button"><a href="{{route('cart.index')}}">Checkout</a></div>
+                                    <div class="login_button" style="padding: 2px;"><a href="{{route('cart.destroy')}}">Clear</a></div>
 
                                     <div class="login_button"><a href="login.html">Login</a></div>
                                     <div class="clear"></div>
